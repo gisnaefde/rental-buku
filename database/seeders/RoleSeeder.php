@@ -16,14 +16,17 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        //unutk menghapus dulu isi tabel
         Schema::disableForeignKeyConstraints();
         Role::truncate();
         Schema::enableForeignKeyConstraints();
 
+        //data yang akan di masukan ke database
         $data = [
             'admin','client'
         ];
 
+        //menambahkan datake database
         foreach($data as $value){
             Role::insert([
                 'name'=>$value

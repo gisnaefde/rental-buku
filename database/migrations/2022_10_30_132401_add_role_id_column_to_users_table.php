@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //menambahkan colom role_id ke dalam user sebagai foreign key dari tabel role
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('roles_id');
             $table->foreign('roles_id')->references('id')->on('roles');
@@ -26,6 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
+        //untuk menghapus  fereign key dan colum sebagai percobaan rollback
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('users_roles_id_foreign');
             $table->dropColumn('roles_id');
