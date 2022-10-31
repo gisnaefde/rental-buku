@@ -38,7 +38,7 @@
                     <button type="submit" class=" btn btn-primary form-control">Login</button>
                 </div>
                 <div  class="text-center">
-                    <a href="#"> SignUp</a>
+                    <a href="register"> SignUp</a>
                 </div>
             </form>
         </div>
