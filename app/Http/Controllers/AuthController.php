@@ -25,12 +25,23 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             //cek apakan status user = active
             if(Auth::user()->status != 'active'){
-                Session::flash('status', 'failed');
+                Session::flash('status', 'failed'); //session ini akan di panggil di from login 
                 Session::flash('message', 'Yor Account is not Active, Please Contact Admin');
                 return redirect('login');
             }
 
-            // $request->session()->regenerate();
+            //membuat session
+            $request->session()->regenerate();
+
+            if(Auth::user()->roles_id == 1){
+                return redirect ("dashboard");
+            }
+            
+            if(Auth::user()->roles_id == 2){
+                return redirect("profil");
+            }
+            
+
  
             // return redirect()->intended('dashboard');
         }
