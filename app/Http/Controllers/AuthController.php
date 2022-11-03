@@ -31,18 +31,17 @@ class AuthController extends Controller
             }
 
             //membuat session
-            $request->session()->regenerate();
+            // $request->session()->regenerate();
 
             if(Auth::user()->roles_id == 1){
                 return redirect ("dashboard");
             }
             
             if(Auth::user()->roles_id == 2){
-                return redirect("profil");
+                return redirect("profile");
             }
             
 
- 
             // return redirect()->intended('dashboard');
         }
 
