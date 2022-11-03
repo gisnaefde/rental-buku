@@ -50,4 +50,12 @@ class AuthController extends Controller
         Session::flash('message', 'Login Infalid');
         return redirect('login');
     }
+
+    public function logout (Request $request) {
+        // jika ada yang authentricasi maka di logout
+        Auth::logout();
+        $request->session()->invalidate();//session di hapus
+        $request->session()->regenerateToken();
+        return redirect('login');//di ridirect ke halaman login
+    }
 }
