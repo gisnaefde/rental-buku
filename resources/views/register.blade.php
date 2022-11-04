@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,7 @@
             box-sizing: border-box;
         }
 
-        .login-box {
+        .register-box {
             width: 500px;
             border: solid 1px;
             padding: 30px;
@@ -26,7 +27,17 @@
 
 <body>
     <div class="main d-flex flex-column justify-content-center align-items-center">
-        <div class="login-box">
+        <!-- error handling jika da kesalahan input -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="register-box">
             <form action="" method="POST">
                 @csrf
                 <div>
@@ -39,7 +50,7 @@
                 </div>
                 <div>
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" name="phone" id="phone" class="form-control" >
+                    <input type="text" name="phone" id="phone" class="form-control">
                 </div>
                 <div>
                     <label for="address" class="form-label">Address</label>
@@ -56,4 +67,5 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+
 </html>

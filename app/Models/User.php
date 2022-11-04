@@ -43,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //untuk default value role_id
+    protected $attributes = [
+        'roles_id' => '2',
+    ];
 }

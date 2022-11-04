@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -66,6 +67,9 @@ class AuthController extends Controller
             'phone' => 'max:255',
             'address' => 'required'
         ]);
-        dd($validated);
+        
+        // yang diinput di simpan dalam variable user
+        // kemudian dalam model User melkakukan create user baru dengan mengisi data dari $request->all()
+        $user = User::create($request->all());
     }
 }
