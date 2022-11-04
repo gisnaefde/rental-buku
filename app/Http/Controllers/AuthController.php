@@ -58,4 +58,14 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('login');//di ridirect ke halaman login
     }
+
+    public function registerProcess(Request $request){
+        $validated = $request->validate([
+            'username' => 'required|unique:users|max:255',
+            'password' => 'required|max:255',
+            'phone' => 'max:255',
+            'address' => 'required'
+        ]);
+        dd($validated);
+    }
 }

@@ -26,6 +26,7 @@ Route::middleware(['only_guest'])->group(function () { //ketika memiliki middlew
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::POST('/login', [AuthController::class, 'authenticating']);//ini akan di jalankan ketika dalam route login melakukan post
     Route::get('/register', [AuthController::class, 'register']);
+    Route::POST('/register', [AuthController::class, 'registerProcess']);
 });
 
 Route::middleware(['auth'])->group(function () {

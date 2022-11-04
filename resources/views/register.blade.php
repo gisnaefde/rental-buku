@@ -38,19 +38,15 @@
                     <input type="password" name="password" id="password" class="form-control" required>
                 </div>
                 <div>
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
-                </div>
-                <div>
                     <label for="phone" class="form-label">Phone</label>
                     <input type="text" name="phone" id="phone" class="form-control" >
                 </div>
                 <div>
                     <label for="address" class="form-label">Address</label>
-                    <textarea name="address" id="address" class="form-control" rows="3"> </textarea>
+                    <textarea name="address" id="address" class="form-control" rows="3" require> </textarea>
                 </div>
                 <div>
-                    <button type="submit" class=" btn btn-primary form-control">Login</button>
+                    <button type="submit" class=" btn btn-primary form-control">Register</button>
                 </div>
                 <div class="text-center">
                     <a href="login"> Login</a>
