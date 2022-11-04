@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class AuthController extends Controller
 {
@@ -68,8 +70,19 @@ class AuthController extends Controller
             'address' => 'required'
         ]);
         
+        //Hash digunakan untuk mengencripsi password di laravel
+        $request['password'] = Hash::make($request->password);
+
         // yang diinput di simpan dalam variable user
         // kemudian dalam model User melkakukan create user baru dengan mengisi data dari $request->all()
         $user = User::create($request->all());
+
+
+        //berhubung akun harus di approve terlebih dahulu olegh admin, maka jika sukses akan tetap berada dalam halaman registe
+        //teteappi akan ada alert untuk memberi tahu bahwa registrasi nya sukses.
+        //sebab itu di buat terlebih  dulu untuk sessionnya
+        Session::flash('status', 'success');
+        Session::flash('message', 'Regist Success, Wait admin for approve');
+        return redirect('register');
     }
 }
