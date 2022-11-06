@@ -6,6 +6,11 @@
 <div class="mt-3 d-flex justify-content-end">
     <a href="categories-add" class="btn btn-primary">Add Data</a>
 </div>
+@if (session('status'))
+    <div class="alert alert-success mt-3">
+        {{ session('status') }}
+    </div>
+@endif
 <div class="mt-4">
     <table class="table">
         <thead>
