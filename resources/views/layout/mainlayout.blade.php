@@ -36,7 +36,7 @@
                     <a href="logout">Logout</a>
                     @endif
                 </div>
-                <div class="content p-3 col-lg-10">
+                <div class="content p-4 col-lg-10">
                     @yield('content')
                 </div>
             </div>

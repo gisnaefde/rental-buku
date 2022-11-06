@@ -1,8 +1,11 @@
 @extends ('layout.mainlayout')
-@section('title', 'Dashboard')
+@section('title', 'Category')
 
 @section('content')
 <h3>Category List</h3>
+<div class="mt-3 d-flex justify-content-end">
+    <a href="categories-add" class="btn btn-primary">Add Data</a>
+</div>
 <div class="mt-4">
     <table class="table">
         <thead>

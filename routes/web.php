@@ -36,7 +36,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class , 'index'])->name('dashboard')->middleware('only_admin');
     Route::get('/profile', [userController::class , 'profile'])->middleware('only_client');
     Route::get('/books', [BooksController::class, 'index']);
+
     Route::get('/categories', [CategoriesController::class, 'index']);
+    Route::get('categories-add',[CategoriesController::class, 'add']);
+
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });
