@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/categories', [CategoriesController::class, 'index']);
     Route::get('categories-add',[CategoriesController::class, 'add']);
+    Route::POST('categories-add', [CategoriesController::class, 'store']);
 
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/rent-logs', [RentLogController::class, 'index']);

@@ -16,4 +16,10 @@ class CategoriesController extends Controller
     public function add(){
         return view('categories-add');
     }
+
+    public function store (Request $request){
+
+        $catgory = Category::create($request->all());
+        return redirect('categories');
+    }
 }
