@@ -19,6 +19,11 @@ class CategoriesController extends Controller
 
     public function store (Request $request){
 
+        //unutk memvalidasi inputan
+        $validated = $request->validate([
+            'name' => 'required|unique:categories|max:100', //maksud dari unique agar ketika admin memasukan category yang sudah ada di DB maka tidak akan bisa
+        ]);
+
         $catgory = Category::create($request->all());
         return redirect('categories');
     }
