@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\RentLogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +36,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class , 'index'])->name('dashboard')->middleware('only_admin');
     Route::get('/profile', [userController::class , 'profile'])->middleware('only_client');
     Route::get('/books', [BooksController::class, 'index']);
+    Route::get('/categories', [CategoriesController::class, 'index']);
+    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/rent-logs', [RentLogController::class, 'index']);
 });
 

@@ -46,9 +46,9 @@
                     @if (Auth::user()->roles_id == 1)
                     <a href="dashboard">Dashboard</a>
                     <a href="books">Books</a>
-                    <a href="#">Categories</a>
-                    <a href="#">Users</a>
-                    <a href="#">Rent Logs</a>
+                    <a href="categories">Categories</a>
+                    <a href="users">Users</a>
+                    <a href="rent-logs">Rent Logs</a>
                     <a href="logout">Logout</a>
                     @else
                     <a href="profile">Profile</a>
