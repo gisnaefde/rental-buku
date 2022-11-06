@@ -7,31 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rental Buku | @yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <style>
-        .main {
-            height: 100vh;
-        }
-
-        .body-content {}
-
-        .sidebar {
-            background-color: black;
-            color: white;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 15px ;
-        }
-        .sidebar a:hover{
-            background-color: black;
-        }
-        .active {
-            background-color: black;
-            border-right: solid 10px orange;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 
 <body>
@@ -65,7 +41,6 @@
             </div>
         </div>
     </div>
-    <div>@yield('content')</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
