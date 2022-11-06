@@ -21,3 +21,27 @@
     background-color: black;
     border-right: solid 10px orange;
 }
+.card-data{
+    padding: 20px 30px;
+    border: solid 1px ;
+    color: white;
+}
+.card-data.books{
+    background-color: teal;
+}
+.card-data.categories{
+    background-color: brown;
+}
+.card-data.users{
+    background-color: blueviolet;
+}
+.card-data i {
+    font-size: 50px;
+}
+
+.card-desc{
+    font-size: 20px;
+}
+.card-count{
+    font-size: 15px;
+}
