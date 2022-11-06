@@ -43,7 +43,7 @@
         </nav>
         <div class="body-content h-100">
             <div class="row g-0 h-100">
-                <div class="sidebar bg-secondary col-2">
+                <div class="sidebar bg-secondary col-lg-2 collapse d-lg-block " id="navbarTogglerDemo02">
                     <ul>
                         @if (Auth::user()->roles_id == 1)
                             <li>
@@ -62,7 +62,7 @@
                         @endif
                     </ul>
                 </div>
-                <div class="content p-3 col-10">
+                <div class="content p-3 col-lg-10">
                     @yield('content')
                 </div>
             </div>
