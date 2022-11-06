@@ -18,6 +18,16 @@
             background-color: black;
             color: white;
         }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar li {
+            padding: 10px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -34,7 +44,23 @@
         <div class="body-content h-100">
             <div class="row g-0 h-100">
                 <div class="sidebar bg-secondary col-2">
-                    kdmkldmfk
+                    <ul>
+                        @if (Auth::user()->roles_id == 1)
+                            <li>
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#">Books</a>
+                            </li>
+                            <li>Categories</li>
+                            <li>Users</li>
+                            <li>Rent Logs</li>
+                            <li>Logout</li>
+                        @else
+                            <li>Profile</li>
+                            <li>Logout</li>
+                        @endif
+                    </ul>
                 </div>
                 <div class="content p-3 col-10">
                     @yield('content')

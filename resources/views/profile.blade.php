@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile</title>
-</head>
-<body>
-    <p>ini halaman profile</p>
-</body>
-</html>
+@extends ('layout.mainlayout')
+@section('title', 'Profile')
+
+@section('content')
+
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, molestiae eum maxime deleniti quisquam impedit soluta hic. Nobis quisquam, placeat amet soluta voluptate corporis? Harum voluptas eum laboriosam sequi esse?
+@endsection
