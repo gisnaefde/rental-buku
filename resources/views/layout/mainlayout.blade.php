@@ -11,22 +11,21 @@
         .main {
             height: 100vh;
         }
-        .body-content{
 
-        }
-        .sidebar{
+        .body-content {}
+
+        .sidebar {
             background-color: black;
             color: white;
-        }
-        .sidebar ul {
-            list-style: none;
-        }
-        .sidebar li {
-            padding: 10px;
         }
         .sidebar a {
             color: white;
             text-decoration: none;
+            display: block;
+            padding: 15px ;
+        }
+        .sidebar a:hover{
+            background-color: black;
         }
     </style>
 </head>
@@ -44,23 +43,17 @@
         <div class="body-content h-100">
             <div class="row g-0 h-100">
                 <div class="sidebar bg-secondary col-lg-2 collapse d-lg-block " id="navbarTogglerDemo02">
-                    <ul>
-                        @if (Auth::user()->roles_id == 1)
-                            <li>
-                                <a href="#">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#">Books</a>
-                            </li>
-                            <li>Categories</li>
-                            <li>Users</li>
-                            <li>Rent Logs</li>
-                            <li>Logout</li>
-                        @else
-                            <li>Profile</li>
-                            <li>Logout</li>
-                        @endif
-                    </ul>
+                    @if (Auth::user()->roles_id == 1)
+                    <a href="dashboard">Dashboard</a>
+                    <a href="books">Books</a>
+                    <a href="#">Categories</a>
+                    <a href="#">Users</a>
+                    <a href="#">Rent Logs</a>
+                    <a href="logout">Logout</a>
+                    @else
+                    <a href="profile">Profile</a>
+                    <a href="logout">Logout</a>
+                    @endif
                 </div>
                 <div class="content p-3 col-lg-10">
                     @yield('content')
