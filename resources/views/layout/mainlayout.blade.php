@@ -25,12 +25,12 @@
             <div class="row g-0 h-100">
                 <div class="sidebar bg-secondary col-lg-2 collapse d-lg-block " id="navbarTogglerDemo02">
                     @if (Auth::user()->roles_id == 1)
-                    <a href="dashboard" class=" {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
-                    <a href="books" class=" {{ (request()->is('books')) ? 'active' : '' }}">Books</a>
-                    <a href="categories" class=" {{ (request()->is('categories')) ? 'active' : '' }}">Categories</a>
-                    <a href="users" class=" {{ (request()->is('users')) ? 'active' : '' }}">Users</a>
-                    <a href="rent-logs" class=" {{ (request()->is('rent-logs')) ? 'active' : '' }}">Rent Logs</a>
-                    <a href="logout">Logout</a>
+                    <a href="/dashboard" class=" {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
+                    <a href="/books" class=" {{ (request()->is('books')) ? 'active' : '' }}">Books</a>
+                    <a href="/categories" class=" {{ (request()->is('categories')) ? 'active' : '' }}">Categories</a>
+                    <a href="/users" class=" {{ (request()->is('users')) ? 'active' : '' }}">Users</a>
+                    <a href="/rent-logs" class=" {{ (request()->is('rent-logs')) ? 'active' : '' }}">Rent Logs</a>
+                    <a href="/logout">Logout</a>
                     @else
                     <a href="profile" class=" {{ (request()->is('profile')) ? 'active' : '' }}">Profile</a>
                     <a href="logout">Logout</a>
