@@ -27,7 +27,7 @@
                     @if (Auth::user()->roles_id == 1)
                     <a href="/dashboard" class=" {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
                     <a href="/books" class=" {{ (request()->is('books')) ? 'active' : '' }}">Books</a>
-                    <a href="/categories" class=" {{ (request()->is('categories')) ? 'active' : '' }}">Categories</a>
+                    <a href="/categories" class=" {{ (request()->is('categories')) || (request()->is('categories-add')) || (request()->is('categories-edit/*')) || (request()->is('categories-delete/*')) || (request()->is('categories-destroy/*'))  || (request()->is('categories-deleted'))  || (request()->is('categories-restore/*')) ? 'active' : '' }}">Categories</a>
                     <a href="/users" class=" {{ (request()->is('users')) ? 'active' : '' }}">Users</a>
                     <a href="/rent-logs" class=" {{ (request()->is('rent-logs')) ? 'active' : '' }}">Rent Logs</a>
                     <a href="/logout">Logout</a>
