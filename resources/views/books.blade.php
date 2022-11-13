@@ -1,6 +1,43 @@
 @extends ('layout.mainlayout')
-@section('title', 'Dashboard')
+@section('title', 'Books')
 
 @section('content')
- <h1>Ini halaman Books</h1>
+<h3>Books List</h3>
+<div class="mt-3 d-flex justify-content-end">
+    <a href="categories-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
+    <a href="categories-add" class="btn btn-primary">Add Data</a>
+</div>
+@if (session('status'))
+    <div class="alert alert-success mt-3">
+        {{ session('status') }}
+    </div>
+@endif
+<div class="mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Code</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($books as $item)
+            <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$item->book_code}}</td>
+                <td>{{$item->title}}</td>
+                <td>{{$item->status}}</td>
+                <td>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+</div>
 @endsection
