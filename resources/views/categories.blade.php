@@ -27,7 +27,7 @@
                 <td>{{$item->name}}</td>
                 <td>
                     <a href="categories-edit/{{$item->slug}}">Edit</a>
-                    <a href="#">Delete</a>
+                    <a href="categories-delete/{{$item->slug}}">Delete</a>
                 </td>
             </tr>
             @endforeach

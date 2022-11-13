@@ -44,4 +44,15 @@ class CategoriesController extends Controller
 
         return redirect('/categories');
     }
+
+    public function delete ($slug) {
+        $categories = Category::where('slug', $slug)->first();
+        return view ('categories-delete', ['categories'=>$categories]);
+    }
+
+    public function destroy ($slug){
+        $categories = Category::where('slug', $slug)->first();
+        $categories->delete();
+        return redirect('categories')->with('status','Category Deleted Successs');
+    }
 }
