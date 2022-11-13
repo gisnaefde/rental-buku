@@ -55,4 +55,15 @@ class CategoriesController extends Controller
         $categories->delete();
         return redirect('categories')->with('status','Category Deleted Successs');
     }
+
+    public function deletedCategory(){
+        $categoriesDeleted = Category::onlyTrashed()->get();//untuk mendapatkan data yang soft delete (ada di doc)
+        return view ('/categories-deleted-list', ['categoriesDeleted'=> $categoriesDeleted]);
+    }
+
+    public function restrore ($slug){
+        $categories = Category::withTrashed()->where('slug', $slug)->first(); //withTrashed digunakan terlebih dahulu karena data yang di restrore itu berada di soft delete (ada di doc)
+        $categories->restore();//unutk merestore data yang ter soft delete
+        return redirect('categories')->with('status','Category Restore Successs');
+    }
 }
