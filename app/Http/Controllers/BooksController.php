@@ -15,4 +15,9 @@ class BooksController extends Controller
     public function add () {
         return view('book-add');
     }
+
+    public function store (Request $request){
+        $book = Book::create($request->all());//menyimpan data buku ke database.
+        return redirect('books');
+    }
 }
