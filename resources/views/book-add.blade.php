@@ -19,11 +19,13 @@
         <div>
             <div class="mt-2">
                 <lable for="code" class="form-lable">Code</lable>
-                <input type="text" name="book_code" id="code " class="form-control mt-2" placeholder="Book Code">
+                <input type="text" name="book_code" id="code " class="form-control mt-2" placeholder="Book Code" value="{{ old('book_code') }}">
+                <!-- value="{{ old('book_code') }}" digunakan ketika terjadi inputan error maka inputan lama akan tetap ada -->
             </div>
             <div class="mt-2">
                 <lable for="title" class="form-lable">Title</lable>
-                <input type="text" name="title" id="title " class="form-control mt-2" placeholder="Book Title">
+                <input type="text" name="title" id="title " class="form-control mt-2" placeholder="Book Title" value="{{ old('title') }}">
+                <!-- value="{{ old('title') }}" digunakan ketika terjadi inputan error maka inputan lama akan tetap ada -->
             </div>
             <div class="mt-2">
                 <lable for="cover" class="form-lable">Code</lable>
