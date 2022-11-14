@@ -28,8 +28,8 @@
                 <!-- value="{{ old('title') }}" digunakan ketika terjadi inputan error maka inputan lama akan tetap ada -->
             </div>
             <div class="mt-2">
-                <lable for="cover" class="form-lable">Code</lable>
-                <input type="file" name="cover" id="cover " class="form-control mt-2" placeholder="Book Cover">
+                <lable for="image" class="form-lable">Image</lable>
+                <input type="file" name="image" id="cover " class="form-control mt-2" placeholder="Book Cover">
             </div>
             <div class="mt-2">
                 <button class="btn btn-success mt-2" type="submit">Save</button>
