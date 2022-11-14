@@ -2,6 +2,10 @@
 @section('title', 'Add-Book')
 
 @section('content')
+
+<!-- Menambhkan cdn select2 agar nantinya dapat men select lebih dari satu kategori -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> 
+
  <h3>Add New Book</h3>
  @if ($errors->any())
     <div class="alert alert-danger">
@@ -33,7 +37,8 @@
             </div>
             <div class="mt-2">
                 <lable for="category" class="form-lable">Category</lable>
-                <select name="categories" id="category" class="form-control mt-2">
+                <select name="categories" id="category" class="form-control mt-2 select-multiple"  multiple>
+                <!-- name="categories[]" merupakan inputan yang dikirim, nantinya berbentuk array -->
                     @foreach($categories as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
@@ -45,4 +50,15 @@
         </div>
     </form>
  </div>
+ <!-- Menambhkan jquery -->
+ <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>  
+
+ <!-- Menambhkan cdn select2 agar nantinya dapat men select lebih dari satu kategori -->
+ <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+ 
+ <script>
+    $(document).ready(function() {
+        $('.select-multiple').select2();
+    });
+ </script>
 @endsection

@@ -32,6 +32,7 @@ class BooksController extends Controller
         }
         $request['cover'] = $newName; //menyimpan data ke dalam database di column cover
         $book = Book::create($request->all());//menyimpan data buku ke database.
+        $book->categories()->sync([$request->categories]);//ini digunakan untuk menambahkan ke function categories dalam Model/Book , sedangkan $request->categories merupakan hasil inputan categori
         return redirect('books')->with('status', 'Book Added Sucsessfully');
     }
 }
