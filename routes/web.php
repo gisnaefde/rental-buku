@@ -35,7 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout',[AuthController::class, 'logout']);
     Route::get('/dashboard', [DashboardController::class , 'index'])->name('dashboard')->middleware('only_admin');
     Route::get('/profile', [userController::class , 'profile'])->middleware('only_client');
+
     Route::get('/books', [BooksController::class, 'index']);
+    Route::get('book-add', [BooksController::class , 'add']);
 
     Route::get('/categories', [CategoriesController::class, 'index']);
     Route::get('categories-add',[CategoriesController::class, 'add']);

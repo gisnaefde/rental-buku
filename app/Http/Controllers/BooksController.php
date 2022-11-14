@@ -11,4 +11,8 @@ class BooksController extends Controller
         $books = Book::all();
         return view('books',['books'=> $books]);
     }
+
+    public function add () {
+        return view('book-add');
+    }
 }

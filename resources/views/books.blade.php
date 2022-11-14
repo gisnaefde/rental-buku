@@ -4,8 +4,7 @@
 @section('content')
 <h3>Books List</h3>
 <div class="mt-3 d-flex justify-content-end">
-    <a href="categories-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
-    <a href="categories-add" class="btn btn-primary">Add Data</a>
+    <a href="book-add" class="btn btn-primary">Add Data</a>
 </div>
 @if (session('status'))
     <div class="alert alert-success mt-3">
