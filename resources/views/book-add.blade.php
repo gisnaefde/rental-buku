@@ -32,6 +32,14 @@
                 <input type="file" name="image" id="cover " class="form-control mt-2" placeholder="Book Cover">
             </div>
             <div class="mt-2">
+                <lable for="category" class="form-lable">Category</lable>
+                <select name="categories" id="category" class="form-control mt-2">
+                    @foreach($categories as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-2">
                 <button class="btn btn-success mt-2" type="submit">Save</button>
             </div>
         </div>
