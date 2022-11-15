@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/books', [BooksController::class, 'index']);
     Route::get('/book-add', [BooksController::class , 'add']);
     Route::post('/book-add' , [BooksController::class, 'store']);
+    Route::get('/book-edit/{slug}', [BooksController::class, 'edit']);
+    Route::put('/book-edit/{slug}', [BooksController::class, 'update']);
 
     Route::get('/categories', [CategoriesController::class, 'index']);
     Route::get('categories-add',[CategoriesController::class, 'add']);

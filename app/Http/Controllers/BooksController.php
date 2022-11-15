@@ -35,4 +35,28 @@ class BooksController extends Controller
         $book->categories()->sync($request->categories);//ini digunakan untuk menambahkan ke function categories dalam Model/Book , sedangkan $request->categories merupakan hasil inputan categori
         return redirect('books')->with('status', 'Book Added Sucsessfully');
     }
+
+    public function edit ($slug) {
+        $book = Book::where('slug', $slug)->first(); //data buku
+        $categories = Category::all(); //data category
+        return view ('book-edit',['book' => $book, 'categories' =>$categories]);
+    }
+
+    public function update($slug, Request $request){
+        $book = Book::where('slug', $slug)->first();
+
+        if($request->file('image')){ //Jika isi request itu file dengan namenya image
+            $extention = $request->file('image')->getClientOriginalExtension(); //untuk mendapatkan extention image
+            $newName = $request->title.'-'.now()->timestamp.'.'.$extention; //$newName berisi nama file yang akan disimpan dengan susunan title-waktu upload.extention
+            $request->file('image')->storeAs('cover', $newName); //menyimpan file image ke dalam folde cover dengan nama $newName , folder cover ini akan otoamtis dibuatkan di public/storage/
+            $request['cover'] = $newName; //menyimpan data ke dalam database di column cover
+        }
+        $book->update($request->all());//mengupdate semua request yang diinput
+
+        if($request->categories){ //jika ada perubahan dalam category
+            $book->categories()->sync($request->categories);// maka book dan category di sinkronisasi
+        }
+
+        return redirect('books')->with('status', 'Book Updated Sucsessfully');
+    }
 }

@@ -37,7 +37,7 @@
                 </td>
                 <td>{{$item->status}}</td>
                 <td>
-                    <a href="#">Edit</a>
+                    <a href="book-edit/{{$item->slug}}">Edit</a>
                     <a href="#">Delete</a>
                 </td>
             </tr>

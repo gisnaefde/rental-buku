@@ -18,7 +18,7 @@
 @endif
  <div class="mt-4 w-50">
  <!-- enctype="multipart/form-data" digunakan karena dalam inputan terdapat inputan berupa file -->
-    <form action="#" method="POST" enctype="multipart/form-data"> 
+    <form action="/book-add" method="POST" enctype="multipart/form-data"> 
         @csrf
         <div>
             <div class="mt-2">
