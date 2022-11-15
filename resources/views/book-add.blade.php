@@ -37,7 +37,7 @@
             </div>
             <div class="mt-2">
                 <lable for="category" class="form-lable">Category</lable>
-                <select name="categories" id="category" class="form-control mt-2 select-multiple"  multiple>
+                <select name="categories[]" id="category" class="form-control mt-2 select-multiple"  multiple>
                 <!-- name="categories[]" merupakan inputan yang dikirim, nantinya berbentuk array -->
                     @foreach($categories as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
