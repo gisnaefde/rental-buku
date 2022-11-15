@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/users', [UserController::class, 'index']); //untuk user active
     Route::get('/registered-users', [userController::class, 'regiteredUsers']);//untuk user yang tidak active
+    Route::get('/user-detail/{slug}', [userController::class, 'show']);
 
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });

@@ -34,7 +34,7 @@
                     @endif
                 </td>
                 <td>
-                    <a href="#">Detail</a>
+                    <a href="/user-detail/{{$item->slug}}">Detail</a>
                 </td>
             </tr>
             @endforeach

@@ -19,4 +19,9 @@ class UserController extends Controller
         $registered = User::where('status','inactive')->where('roles_id','2')->get(); //untuk memfilter hanya user(bukan admin) dan status inactive saja yang tampil
         return view ('registered-user', ['registered'=> $registered]);
     }
+
+    public function show ($slug) {
+        $user = User::where('slug',$slug)->first();
+        return view('user-detail',['user'=>$user]);
+    }
 }
