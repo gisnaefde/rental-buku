@@ -56,7 +56,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/categories-deleted',[CategoriesController::class, 'deletedCategory']);
     Route::get('/categories-restore/{slug}', [CategoriesController::class, 'restrore']);
 
-    Route::get('/users', [UserController::class, 'index']);
+    Route::get('/users', [UserController::class, 'index']); //untuk user active
+    Route::get('/registered-users', [userController::class, 'regiteredUsers']);//untuk user yang tidak active
+
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });
 

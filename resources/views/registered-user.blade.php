@@ -1,10 +1,10 @@
 @extends ('layout.mainlayout')
-@section('title', 'Users')
+@section('title', 'Registered Users')
 
 @section('content')
-<h3>Users List</h3>
+<h3>New Registered Users List</h3>
 <div class="mt-3 d-flex justify-content-end">
-    <a href="/registered-users" class="btn btn-primary">New Registered User</a>
+    <a href="/users" class="btn btn-primary">Approved User List</a>
 </div>
 @if (session('status'))
     <div class="alert alert-success mt-3">
@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $item)
+            @foreach ($registered as $item)
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$item->username}}</td>

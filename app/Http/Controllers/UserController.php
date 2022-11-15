@@ -11,7 +11,12 @@ class UserController extends Controller
         return view('profile');
     }
     public function index (){
-        $users = User::where('roles_id', '2')->get(); //untuk memfilter hanya user saja yang tampil
+        $users = User::where('roles_id', '2')->where('status', 'active')->get(); //untuk memfilter hanya user(bukan admin) dan status active saja yang tampil
         return view('users',['users'=>$users]);
+    }
+
+    public function regiteredUsers(){
+        $registered = User::where('status','inactive')->where('roles_id','2')->get(); //untuk memfilter hanya user(bukan admin) dan status inactive saja yang tampil
+        return view ('registered-user', ['registered'=> $registered]);
     }
 }
