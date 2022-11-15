@@ -4,6 +4,7 @@
 @section('content')
 <h3>Books List</h3>
 <div class="mt-3 d-flex justify-content-end">
+    <a href="/book-deleted" class="btn btn-secondary me-3">View Deleted Book</a>
     <a href="book-add" class="btn btn-primary">Add Data</a>
 </div>
 @if (session('status'))

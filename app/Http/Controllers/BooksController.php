@@ -70,4 +70,15 @@ class BooksController extends Controller
         $book->delete();
         return redirect('/books')->with('status', 'Book Deleted Sucsessfully');
     }
+
+    public function bookDeleted(){
+        $book = Book::onlyTrashed()->get();//mendapatkan data yang ter soft delete
+        return view ('books-deleted-list', ['book'=>$book]); //menampilkan list data yang ter soft delete
+    }
+
+    public function restore($slug){
+        $book = Book::withTrashed()->where('slug',$slug)->first();//mendapatkan data yangb terdapat di soft delete
+        $book->restore();
+        return redirect('/books')->with('status', 'Book Restore Succesfully');
+    }
 }
