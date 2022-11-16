@@ -62,6 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users-approve/{slug}', [userController::class,'approve'] );//unutk merubah status user dari inactive menjadi active
     Route::get('/user-delete/{slug}',[userController::class, 'delete']);
     Route::get('/user-destroy/{slug}',[userController::class, 'destroy']);
+    Route::get('user-deleted',[userController::class, 'deletedUser']);
+    Route::get('/user-restore/{slug}',[userController::class,'restore']);
 
     Route::get('/rent-logs', [RentLogController::class, 'index']);
 });

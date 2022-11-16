@@ -1,11 +1,10 @@
 @extends ('layout.mainlayout')
-@section('title', 'Users')
+@section('title', 'User Deleted')
 
 @section('content')
-<h3>Users List</h3>
+<h3>User Deleted List</h3>
 <div class="mt-3 d-flex justify-content-end">
-    <a href="/user-deleted" class="btn btn-secondary me-3">View Deleted User</a>
-    <a href="/registered-users" class="btn btn-primary">New Registered User</a>
+    <a href="users" class="btn btn-primary">Back</a>
 </div>
 @if (session('status'))
     <div class="alert alert-success mt-3">
@@ -23,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $item)
+        @foreach ($user as $item)
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$item->username}}</td>
@@ -35,8 +34,7 @@
                     @endif
                 </td>
                 <td>
-                    <a href="/user-detail/{{$item->slug}}">Detail</a>
-                    <a href="/user-delete/{{$item->slug}}">Delete User</a>
+                    <a href="/user-restore/{{$item->slug}}">Restore</a>
                 </td>
             </tr>
             @endforeach

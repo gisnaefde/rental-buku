@@ -43,4 +43,15 @@ class UserController extends Controller
         return redirect('/users')->with('status','User Deleted Sucessfully');
     }
 
+    public function deletedUser(){
+        $user = User::onlyTrashed()->get();
+        return view ('user-deleted-list',['user'=>$user]);
+    }
+
+    public function restore($slug){
+        $user = User::onlyTrashed()->where('slug', $slug)->first();
+        $user->restore();
+        return redirect('users')->with('status','Category Restore Successs');
+    }
+
 }
