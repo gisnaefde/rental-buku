@@ -28,7 +28,7 @@
                     <a href="/dashboard" class=" {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
                     <a href="/books" class=" {{ (request()->is('books')) || (request()->is('book-add')) || (request()->is('book-edit/*')) || (request()->is('book-delete/*')) || (request()->is('/book-destroy/*')) || (request()->is('book-deleted')) || (request()->is('book-restore/*'))  ? 'active' : '' }}">Books</a>
                     <a href="/categories" class=" {{ (request()->is('categories')) || (request()->is('categories-add')) || (request()->is('categories-edit/*')) || (request()->is('categories-delete/*')) || (request()->is('categories-destroy/*'))  || (request()->is('categories-deleted'))  || (request()->is('categories-restore/*')) ? 'active' : '' }}">Categories</a>
-                    <a href="/users" class=" {{ (request()->is('users')) ? 'active' : '' }}">Users</a>
+                    <a href="/users" class=" {{ (request()->is('users')) || (request()->is('registered-users')) || (request()->is('user-detail/*')) || (request()->is('users-approve/*')) || (request()->is('user-delete/*')) || (request()->is('user-destroy/*')) || (request()->is('user-deleted')) || (request()->is('user-restore/*')) ? 'active' : '' }}">Users</a>
                     <a href="/rent-logs" class=" {{ (request()->is('rent-logs')) ? 'active' : '' }}">Rent Logs</a>
                     <a href="/logout">Logout</a>
                     @else
