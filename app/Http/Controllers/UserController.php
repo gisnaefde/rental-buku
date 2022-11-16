@@ -24,4 +24,11 @@ class UserController extends Controller
         $user = User::where('slug',$slug)->first();
         return view('user-detail',['user'=>$user]);
     }
+
+    public function approve ($slug){
+        $user = User::where('slug', $slug)->first();
+        $user->status = "active"; //merubah status user menjadi active
+        $user->save(); //menyimpan status baru user
+        return redirect('/user-detail/$slug')->with('status','User Approved Sucessfully');
+    }
 }

@@ -4,10 +4,16 @@
 @section('content')
 <h3>Detail Users</h3>
 <div class="mt-3 d-flex justify-content-end">
-    @if($user->status == 'inactive')
-    <a href="/users" class="btn btn-info">Approved User</a>
+    <!-- agar Tombol Approved user hanya aktif jika status user inactive -->
+    @if($user->status == 'inactive') 
+    <a href="/users-approve/{{$user->slug}}" class="btn btn-info">Approved User</a>
     @endif
 </div>
+@if (session('status'))
+    <div class="alert alert-success mt-3">
+        {{ session('status') }}
+    </div>
+@endif
 <div class="mt-4 w-25">
     <div class="mb-3">
         <label class="from-lable">Username</label>
