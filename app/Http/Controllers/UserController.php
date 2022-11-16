@@ -31,4 +31,16 @@ class UserController extends Controller
         $user->save(); //menyimpan status baru user
         return redirect('/user-detail/$slug')->with('status','User Approved Sucessfully');
     }
+
+    public function delete ($slug){
+        $user = User::where('slug', $slug)->first();
+        return view ('user-delete',['user'=>$user]);
+    }
+
+    public function destroy ($slug){
+        $user = User::where('slug', $slug)->first();
+        $user->delete();
+        return redirect('/users')->with('status','User Deleted Sucessfully');
+    }
+
 }

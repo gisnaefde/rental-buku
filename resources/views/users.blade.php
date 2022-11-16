@@ -35,6 +35,7 @@
                 </td>
                 <td>
                     <a href="/user-detail/{{$item->slug}}">Detail</a>
+                    <a href="/user-delete/{{$item->slug}}">Delete User</a>
                 </td>
             </tr>
             @endforeach
