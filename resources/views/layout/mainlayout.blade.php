@@ -24,6 +24,8 @@
         <div class="body-content h-100">
             <div class="row g-0 h-100">
                 <div class="sidebar bg-secondary col-lg-2 collapse d-lg-block " id="navbarTogglerDemo02">
+                {{-- @if(Auth::user()) digunakan agar yang bisa mengakses kode dibawah hanya untuk user, jadinya public dapat mengakses kode dibawah --}}
+                @if(Auth::user()) 
                     @if (Auth::user()->roles_id == 1)
                     <a href="/dashboard" class=" {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
                     <a href="/books" class=" {{ (request()->is('books')) || (request()->is('book-add')) || (request()->is('book-edit/*')) || (request()->is('book-delete/*')) || (request()->is('/book-destroy/*')) || (request()->is('book-deleted')) || (request()->is('book-restore/*'))  ? 'active' : '' }}">Books</a>
@@ -36,6 +38,8 @@
                     <a href="logout">Logout</a>
                     @endif
                 </div>
+                @endif
+                <a href="/login">Login</a>
                 <div class="content p-4 col-lg-10">
                     @yield('content')
                 </div>

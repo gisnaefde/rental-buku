@@ -7,6 +7,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\PublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ use App\Http\Controllers\RentLogController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PublicController::class, 'index']);
 
 
 Route::middleware(['only_guest'])->group(function () { //ketika memiliki middleware yang sama maka dibuat group
