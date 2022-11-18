@@ -32,9 +32,11 @@
                     <a href="/categories" class=" {{ (request()->is('categories')) || (request()->is('categories-add')) || (request()->is('categories-edit/*')) || (request()->is('categories-delete/*')) || (request()->is('categories-destroy/*'))  || (request()->is('categories-deleted'))  || (request()->is('categories-restore/*')) ? 'active' : '' }}">Categories</a>
                     <a href="/users" class=" {{ (request()->is('users')) || (request()->is('registered-users')) || (request()->is('user-detail/*')) || (request()->is('users-approve/*')) || (request()->is('user-delete/*')) || (request()->is('user-destroy/*')) || (request()->is('user-deleted')) || (request()->is('user-restore/*')) ? 'active' : '' }}">Users</a>
                     <a href="/rent-logs" class=" {{ (request()->is('rent-logs')) ? 'active' : '' }}">Rent Logs</a>
+                    <a href="/" class=" {{ (request()->is('/')) ? 'active' : '' }}">Book List</a>
                     <a href="/logout">Logout</a>
                     @else
                     <a href="profile" class=" {{ (request()->is('profile')) ? 'active' : '' }}">Profile</a>
+                    <a href="/" class=" {{ (request()->is('/')) ? 'active' : '' }}">Book List</a>
                     <a href="logout">Logout</a>
                     @endif
                     @endif

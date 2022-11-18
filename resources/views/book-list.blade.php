@@ -6,7 +6,7 @@
     <div class="row">
         @foreach($books as $item)
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 my-3 ">
-            <div class="card">
+            <div class="card h-100">
                 <img src=" {{ $item->cover != null ? asset('/storage/cover/'.$item->cover) : asset('/images/cover_not_found.jpeg') }}" class="card-img-top p-4" alt="/" height="300px">
                 <div class="card-body">
                     <h5 class="card-title">{{$item->book_code}}</h5>
