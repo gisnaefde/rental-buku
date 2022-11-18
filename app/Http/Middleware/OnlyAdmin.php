@@ -19,7 +19,7 @@ class OnlyAdmin
     {
         //jika role bukan admin
         if(Auth::user()->roles_id != 1){
-            return redirect('books');
+            return redirect('/');
         }else{
             // jika role admin
             return $next($request);

@@ -19,7 +19,7 @@ class OnlyClient
     {
         //jika role bukan client
         if(Auth::user()->roles_id != 2){
-            return redirect('books');
+            return redirect('/');
         }else{
             // jika role client
             return $next($request);

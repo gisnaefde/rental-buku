@@ -21,7 +21,7 @@ class OnlyGuest
 
         //ini mengecek jika sudah masuk dan ingin mengakses halaman login registe akan di ridirect ke halaman books
         if(Auth::user()){
-            return redirect('books');
+            return redirect('/');
         }
         return $next($request);
     }

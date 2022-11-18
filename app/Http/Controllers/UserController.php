@@ -29,7 +29,7 @@ class UserController extends Controller
         $user = User::where('slug', $slug)->first();
         $user->status = "active"; //merubah status user menjadi active
         $user->save(); //menyimpan status baru user
-        return redirect('/user-detail/$slug')->with('status','User Approved Sucessfully');
+        return redirect('/users')->with('status','User Approved Sucessfully');
     }
 
     public function delete ($slug){
