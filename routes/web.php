@@ -8,6 +8,8 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\BookRentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user-destroy/{slug}',[userController::class, 'destroy']);
         Route::get('user-deleted',[userController::class, 'deletedUser']);
         Route::get('/user-restore/{slug}',[userController::class,'restore']);
+
+        Route::get('/book-rent',[BookRentController::class, 'index']);
     });
 
     Route::get('/rent-logs', [RentLogController::class, 'index']);
