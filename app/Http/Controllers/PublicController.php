@@ -13,13 +13,13 @@ class PublicController extends Controller
 
         if($request->category || $request->title){ //jika ada request dari category atau title maka jalankan perintah di bawah
 
-            // $books = Book::where('title','like',"%".$request->title."%")->get();//fitur search berdasarkan title
-
-            //Fitur Search berdasarkan categori
-            $books = Book::whereHas('categories', function($q) use($request){ // karena categori itu berelasi dengan buku (bisa dilihat di model books), jadi kita menggunakan whereHas. 'categories' tersebut merupakan nama fungsi relasi yang ada di model books
-                $q->where('categories.id', $request->category);// disini kita mencari berdasarkan hasil request dengan id yang ada dalam categories.
-            })->get();
-            
+            //jika kedua fitur search ini dijalankan maka akan memuncul buku berdasarkan title dan category yang di tentukan
+            $books = Book::where('title','like',"%".$request->title."%")//fitur search berdasarkan title
+                            //Fitur Search berdasarkan categori
+                            ->orWhereHas('categories', function($q) use($request){ // karena categori itu berelasi dengan buku (bisa dilihat di model books), jadi kita menggunakan whereHas. 'categories' tersebut merupakan nama fungsi relasi yang ada di model books
+                                $q->where('categories.id', $request->category); // disini kita mencari berdasarkan hasil request dengan id yang ada dalam categories.
+                            })
+                            ->get();
         }
         else { //jika tidak ada request maka data buku di tampilkan semua
             $books = Book::all();
