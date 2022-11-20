@@ -20,5 +20,11 @@ class BookRentController extends Controller
         $request['rent_date'] = Carbon::now()->toDateString(); //$request['rent_date'], yaitu mengisi request dengan name 'rent_date'
         $request['return_date'] = Carbon::now()->addDays(3)->toDateString();//ditambah 3 hari
         
+        //logika , tidak bisa meminjam buku yang sedang di pinjam
+        $books = Book::find($request->book_id);
+        if($books->status != 'in stock'){
+            dd('buku sedang dipinjam');
+        }
+        dd('book bisa di pinjam');
     }
 }
