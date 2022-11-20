@@ -12,45 +12,53 @@ use Illuminate\Support\Facades\DB;
 
 class BookRentController extends Controller
 {
-    public function index() {
-        $user = User::where('id','!=',1)->get();
+    public function index()
+    {
+        $user = User::where('id', '!=', 1)->get();
         $books = Book::all();
-        return view('book-rent',['user'=>$user, 'books'=>$books]);
+        return view('book-rent', ['user' => $user, 'books' => $books]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //carbon now digunakan unutk mendapatkan data waktu sekarang
         $request['rent_date'] = Carbon::now()->toDateString(); //$request['rent_date'], yaitu mengisi request dengan name 'rent_date'
-        $request['return_date'] = Carbon::now()->addDays(3)->toDateString();//ditambah 3 hari
-        
+        $request['return_date'] = Carbon::now()->addDays(3)->toDateString(); //ditambah 3 hari
+
         //logika , tidak bisa meminjam buku yang sedang di pinjam
         $books = Book::find($request->book_id); //mencari buku dengan id sesuai request
-    
-        if($books->status != 'in stock'){
+
+        if ($books->status != 'in stock') {
             Session::flash('message', 'Book is being borrowed'); //unutk mengirimkan pesan ke book-rent
-            Session::flash('alert-class', 'alert-danger'); 
+            Session::flash('alert-class', 'alert-danger');
             return redirect('book-rent');
-        }
-        else{
-            try{
-                //disini menggunakan DB transaction karena ada dua table yang sekaligus di ubah yaitu menambhakan data ke rent-logs dan mengupdate status buku di table books
-                DB::beginTransaction();
-                
-                RentLogs::create($request->all()); //menambahkan semua data hasil request ke dalam table rent-logs
+        } else {
+            //Fitur limit peminjaman
+            $count = RentLogs::where('user_id', $request->user_id)->where('actual_return_date', null)->count(); //ini mennghitung user dengan id tersebut sudah meminjam berapa buku.
 
-                $book = Book::find($request->book_id);
-                $book->status = "not available"; //mengganti book status menjadi not available
-                $book->save();
-
-                DB::commit();
-
-                Session::flash('message', 'The book was successfully borrowed'); //unutk mengirimkan pesan ke book-rent
-                Session::flash('alert-class', 'alert-success'); 
+            if ($count >= 3) {
+                Session::flash('message', 'The user has met the lending limit'); //unutk mengirimkan pesan ke book-rent
+                Session::flash('alert-class', 'alert-danger');
                 return redirect('book-rent');
-            }
-            catch (\Throwable $th){
-                DB::rollBack();
-                dd('kesalahan');
+            } else {
+                try {
+                    //disini menggunakan DB transaction karena ada dua table yang sekaligus di ubah yaitu menambhakan data ke rent-logs dan mengupdate status buku di table books
+                    DB::beginTransaction();
+
+                    RentLogs::create($request->all()); //menambahkan semua data hasil request ke dalam table rent-logs
+
+                    $book = Book::find($request->book_id);
+                    $book->status = "not available"; //mengganti book status menjadi not available
+                    $book->save();
+
+                    DB::commit();
+
+                    Session::flash('message', 'The book was successfully borrowed'); //unutk mengirimkan pesan ke book-rent
+                    Session::flash('alert-class', 'alert-success');
+                    return redirect('book-rent');
+                } catch (\Throwable $th) {
+                    DB::rollBack();
+                }
             }
         }
     }
