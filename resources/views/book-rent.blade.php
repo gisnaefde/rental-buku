@@ -7,6 +7,10 @@
 
 <div class="col-12 col-lg-6 col-md-8 offset-md-3 ">
     <h1>Book Rent Form</h1>
+    <!-- untuk menerima status dari BookRentCOntroller -->
+    @if(Session::has('message'))
+    <p class="alert {{ Session::get('alert-class') }} mt-3">{{ Session::get('message') }}</p>
+    @endif
     <form method="POST" action="book-rent" class="mt-5">
         @csrf
         <div class="mb-3">

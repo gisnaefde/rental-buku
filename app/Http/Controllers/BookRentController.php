@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Session;
 
 class BookRentController extends Controller
 {
@@ -22,8 +23,11 @@ class BookRentController extends Controller
         
         //logika , tidak bisa meminjam buku yang sedang di pinjam
         $books = Book::find($request->book_id);
+    
         if($books->status != 'in stock'){
-            dd('buku sedang dipinjam');
+            Session::flash('message', 'Book is being borrowed'); //unutk mengirimkan pesan ke book-rent
+            Session::flash('alert-class', 'alert-danger'); 
+            return redirect('book-rent');
         }
         dd('book bisa di pinjam');
     }
